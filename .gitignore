@@ -1,0 +1,10 @@
+hs_err_pid8013.log
+target/
+hs_err_pid8013.log
+*.class
+*.log
+.classpath
+.project
+.cache-main
+.cache-tests
+.settings
