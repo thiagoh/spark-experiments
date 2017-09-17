@@ -83,5 +83,18 @@ object GitHubDaySparkSubmit {
       val filteredEmployees = ordered.filter(isEmployee($"username"));
       filteredEmployees.write.format(args(3)).save(args(2))
     }
+    
+    {
+      
+      val tranFile = sc.textFile("first-edition/ch04/ch04_data_transactions.txt");
+      val tranData = tranFile.map(_.split('#'));
+      var transByCust = tranData.map(tran => (tran(2).toInt, tran));
+      println(transByCust);
+      transByCust.foreach(pair => println(pair._1 + " " + pair._2));
+      
+      val custIds = transByCust.keys.distinct();
+      custIds.count()
+
+    }
   }
 }
