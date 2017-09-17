@@ -30,8 +30,10 @@ println("##########################################");
 val head = transByCustCountByKey.toSeq.sortBy(_._2).head
 println("customer .head :" + head);
 transByCust.lookup(head._1);
+transByCust.lookup(head._1).foreach(trans => println(trans.mkString("#")));
 val last = transByCustCountByKey.toSeq.sortBy(_._2).last;
 println("customer .last :" + last);
 transByCust.lookup(last._1);
+transByCust.lookup(last._1).foreach(trans => println(trans.mkString("#")));
 
 var complTrans = Array(Array("2015-03-30", "11:59 PM", "53", "4", "1", "0.00"));
